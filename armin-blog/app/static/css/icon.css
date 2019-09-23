@@ -1,0 +1,35 @@
+.login h1 a {
+	 background-image: url('../images/favicon.png');
+	height: 100px;
+	width: 230px;
+	background-size: 230px;
+}
+
+#login .tiantest-info-box {
+	border-radius: 5px !important;
+    border: 1px solid #00a0d2 !important;
+    height: 34px !important;
+}
+
+#login .tiantest-success-box, .tiantest-info-box-no, .tiantest-error-box {
+	border-radius: 5px;
+    height: 34px;
+}
+
+#login.tiantest-info-box .iconmethod-draw-image {
+	color: #00a0d2;
+}
+
+#login .tiantest-info-box .tiantest-info {
+	color: #00a0d2;
+}
+
+#login .tiantest-info-box .tiantest-logo-icon {
+	color: #00a0d2;
+}
+
+#login .tiantest-box {
+	height: 50px !important;
+	box-shadow: none !important;
+}
+

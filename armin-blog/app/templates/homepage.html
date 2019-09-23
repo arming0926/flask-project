@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+</head>
+
+<body style="background: azure">
+<link href="../static/css/style.css" rel="stylesheet" type="text/css"/><!-- Head tag -->
+
+
+<div class="site-header">
+    <div class="logo">
+        <a>
+
+            <img src="../static/images/favicon.png" alt="旋转跳跃喔" height="60">
+
+        </a>
+    </div>
+    <nav class="navbar">
+
+        <p>
+            <a href="/login">
+
+                登录
+
+            </a>
+
+            <a href="/register">
+
+                注册
+
+            </a>
+        </p>
+    </nav>
+</div>
+<div class="post">
+    <!-- Post Content -->
+
+    <div class="post-logo">
+        <img src="../static/images/me.jpeg"
+             alt="Hello World">
+    </div>
+    {% for v in get_flashed_messages(category_filter=['login']) %}
+        <h3 style="color:red;">{{ v }}</h3>
+    {% endfor %}
+
+    <style type="text/css">a {
+        text-decoration: none
+    }</style>
+</div>
+<footer class="site-info">
+    <p>
+        <span>Copyright © 2019 ArminBlog. </span>
+
+    </p>
+</footer>
+
+
+</body>
+</html>

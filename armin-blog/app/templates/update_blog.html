@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update_blog</title>
+        <script src="//cdn.tinymce.com/4/tinymce.min.js">
+        </script>
+        <script>
+            tinymce.init({
+                selector: 'textarea'
+            });
+        </script>
+</head>
+<body style="background:url(../static/images/sky.jpeg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;">
+<div>
+    <a href="/blog_detail/{{ blog_rows[0].title }}" style="height: 56px;line-height: 26px;color: #333;"><i
+            class="fa fa-circle-o"></i> 返回</a>
+</div>
+
+<form action="/update_blog/{{ blog_rows[0].title }}" method="post">
+    <h1>My Blog</h1>
+    <div>
+        <h3><font size="5" color="red">{{ msg }}</font></h3>
+    </div>
+    <p>
+        <label for="user_blog">标题：
+            <input type="text" value="{{ blog_rows[0].title | safe}}" placeholder="" required="" id="title" name="title"></label>
+    </p>
+    <p>
+        <label for="user_blog">作者：
+            <input type="text" value="{{ blog_rows[0].author | safe}}" placeholder="" required="" id="author" name="author"></label>
+    </p>
+    <p>
+        <label for="user_blog"><br/>
+        <textarea cols="100" rows="20" placeholder="" id="content"
+                  name="content">{{ blog_rows[0].content }}</textarea></label>>
+    </p>
+    <p>
+        <input type="submit" id="submit" name="submit" value="保存"><br>
+        <style type="text/css">a {
+            text-decoration: none
+        }</style>
+    </p>
+</form><!-- form -->
+</body>
+
+</html>

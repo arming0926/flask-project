@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="../static/css/style.css" rel="stylesheet" type="text/css"/><!-- Head tag -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>主页</title>
+</head>
+
+
+<body style="background:url(../static/images/myself.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;">
+<div class="post">
+    <!-- Post Content -->
+
+    <article class="post-container">
+        <!-- Title date & tags -->
+        <article class="post-header">
+
+            <div class="tags-links">
+
+
+                <a href="{{ url_for('main.watchlist') }}" rel="tag">
+                    我的日志
+                </a>&nbsp;&nbsp;
+
+                <a href="{{ url_for('main.picture') }}" rel="tag">
+                    我的相册
+                </a><br><br><br>
+
+                <a href="{{ url_for('main.personal') }}" rel="tag">
+                    个人资料
+                </a>&nbsp;&nbsp;
+
+                <a href="{{ url_for('main.logout') }}" rel="tag">
+                    退出登录
+                </a>
+
+            </div>
+
+        </article>
+    </article>
+</div>
+
+
+<style type="text/css">a {
+    text-decoration: none
+}</style>
+</body>
+</html>

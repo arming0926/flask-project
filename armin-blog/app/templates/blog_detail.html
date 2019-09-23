@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog</title>
+</head>
+<body style="background: azure">
+<link href="../static/css/style.css" rel="stylesheet" type="text/css"/><!-- Head tag -->
+
+
+<div class="site-header">
+    <div class="logo">
+        <a href="/success" rel="home">
+
+            <img src="../static/images/favicon.png" alt="旋转跳跃喔" height="60">
+
+        </a>
+    </div>
+    <nav class="navbar">
+        <p>
+            <a href="/success">
+
+                主页
+
+            </a>
+
+
+            <a href="/logout">
+
+                退出
+
+            </a>
+        </p>
+
+    </nav>
+</div>
+
+<div class="post">
+    <!-- Post Content -->
+
+
+    <div class="post-logo">
+        <img src="../static/images/me.jpeg"
+             alt="Hello World">
+    </div>
+    {% for v in get_flashed_messages(category_filter=['ok']) %}
+        <h3 style="color:green;">{{ v }}</h3>
+    {% endfor %}
+
+    <style type="text/css">a {
+        text-decoration: none
+    }</style>
+    <article class="post-container">
+        <!-- Title date & tags -->
+        <div class="post-header">
+            <h1>
+                {{ blog_rows[0].title }}
+            </h1><br>
+            <h4>
+                {{ blog_rows[0].update_time }}
+                &nbsp;&nbsp;&nbsp;作者：{{ blog_rows[0].author }}
+            </h4>
+                <a
+                        href="{{ url_for('main.update_blog',title = blog_rows[0].title) }}" target="_blank" class="edit"
+                        style="float: right;
+    margin-left: 14px;
+    padding: 0 10px 0 18px;font-size: 14px;
+    border: 1px solid #dcdcdc;
+    color: #9b9b9b;
+    line-height: 30px;
+    border-radius: 50px;">编辑文章</a><br>
+        </div>
+        <div class="post-content ">
+            <p>{{ blog_rows[0].content | safe }}</p>
+        </div>
+
+    </article>
+</div>
+<footer class="site-info">
+    <p>
+
+        <span>© 著作权归作者所有</span>
+
+    </p>
+</footer>
+
+
+</body>
+</html>

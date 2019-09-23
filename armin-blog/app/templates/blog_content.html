@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog</title>
+</head>
+<body style="background: azure">
+<link href="../static/css/style.css" rel="stylesheet" type="text/css"/><!-- Head tag -->
+
+
+<div class="site-header">
+    <div class="logo">
+        <a href="/success" rel="home">
+
+            <img src="../static/images/favicon.png" alt="旋转跳跃喔" height="60">
+
+        </a>
+    </div>
+    <nav class="navbar">
+
+        <p>
+            <a href="/success">
+
+                主页
+
+            </a>
+
+
+            <a href="/logout">
+
+                退出
+
+            </a>
+        </p>
+
+    </nav>
+</div>
+
+{% for v in get_flashed_messages(category_filter=['ok']) %}
+    <h3 style="color:green;">{{ v }}</h3>
+{% endfor %}
+
+<p style="color: #646464;margin-right: 5px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400!important;
+    -webkit-font-smoothing: antialiased;font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;">
+    我的日志（{{ blog_rows|length }}篇）</p>
+
+<a href="{{ url_for('main.create_blog') }}" style="float: left;
+    margin-left: 14px;
+    padding: 0 10px 0 18px;font-size: 12px;
+    border: 1px solid #dcdcdc;
+    color: #9b9b9b;
+    line-height: 30px;
+    border-radius: 50px;"><i class="fa fa-circle-o"></i> 新建日志 </a><a href="{{ url_for('main.delete_all_blog') }}"
+                                                                     target="_blank" class="post_delete_all" style="float: left;
+    margin-left: 14px;
+    padding: 0 10px 0 18px;font-size: 12px;
+    border: 1px solid #dcdcdc;
+    color: #9b9b9b;
+    line-height: 30px;
+    border-radius: 50px;"
+                                                                     onclick="{if(confirm('确定删除所有记录吗?')){this.document.formname.submit();return true;}return false;}">删除全部 </a><br><br>
+
+<style type="text/css">
+    :link {
+        color: #06F;
+        text-decoration: none;
+    }
+
+    /* 未访问的链接 */
+    a:visited {
+        color: #999;
+        text-decoration: line-through;
+    }
+
+    /* 已访问的链接 */
+    a:hover {
+        color: #6966ff;
+        text-decoration: underline;
+    }
+
+    /* 鼠标移动到链接上 */
+    a:active {
+        color: #F0F;
+    }
+
+    /* 选定的链接 */
+</style>
+<ul>
+    {% for blog_row in blog_rows %}
+        <li><a href="{{ url_for('main.blog_detail',title = blog_row.title) }}"
+               style="font-family: -apple-system,SF UI Display,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;color: #666666;font-size: 20px"><i
+                class="fa fa-circle-o"></i> {{ blog_row.title }}</a>
+            <p style="margin-right: 10px;
+    color: #b4b4b4;font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;">{{ blog_row.author }} -- {{ blog_row.update_time }}&nbsp;&nbsp;&nbsp;&nbsp;<a
+                    href="{{ url_for('main.delete_blog',title = blog_row.title ) }}" style="margin-left: 14px;padding: 0 10px 0 18px;font-size: 14px;
+    color: #9b9b9b;
+    line-height: 30px;
+    border-radius: 50px;"
+                    onclick="{if(confirm('确定删除此条记录吗?')){this.document.formname.submit();return true;}return false;}"><i
+                    class="fa fa-circle-o"></i> 删除 </a></p>
+            <HR>
+        </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

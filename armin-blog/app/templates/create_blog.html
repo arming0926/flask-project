@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>create_blog</title>
+        <script src="//cdn.tinymce.com/4/tinymce.min.js">
+        </script>
+        <script>
+            tinymce.init({
+                selector: 'textarea'
+            });
+        </script>
+</head>
+<body style="background: azure">
+<div>
+    <a href="{{ url_for('main.watchlist') }}" style="height: 56px;line-height: 26px;color: #333;"><i
+            class="fa fa-circle-o"></i> 返回</a>
+</div>
+
+<form action="/create_blog" method="post">
+    <h1>My Blog</h1>
+    <div>
+        <h3><font size="5" color="red">{{ msg }}</font></h3>
+    </div>
+    <div>
+        <input type="text" placeholder="请输入标题" required="" id="title" name="title"><br>
+    </div>
+    <div>
+        <input type="text" placeholder="请输入作者" required="" id="author" name="author"><br>
+    </div>
+    <div>
+        <textarea cols="100" rows="20" placeholder="请输入正文" id="content" name="content"></textarea><br>
+    </div>
+    <div>
+        <input  type="submit" id="submit" name="submit" value="保存"><br>
+        <style type="text/css">a {
+            text-decoration: none
+        }</style>
+    </div>
+</form><!-- form -->
+</body>
+
+</html>

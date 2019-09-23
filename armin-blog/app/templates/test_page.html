@@ -1,0 +1,17 @@
+{% if paginate.has_prev %}
+    <a href="{{ url_for('user.stu_page') }}?page={{ paginate.prev_num }}">上一页</a>
+{% endif %}
+
+{% for i in paginate.iter_pages() %}
+    <a href="{{ url_for('user.stu_page') }}?page={{ i }}">
+        {% if not i %}
+            ...
+        {% else %}
+            {{ i }}
+        {% endif %}
+    </a>
+{% endfor %}
+
+{% if paginate.has_next %}
+    <a href="{{ url_for('user.stu_page') }}?page={{ paginate.next_num }}">下一页</a>
+{% endif %}

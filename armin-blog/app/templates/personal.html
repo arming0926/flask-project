@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog</title>
+</head>
+<body style="background: azure">
+<link href="../static/css/style.css" rel="stylesheet" type="text/css"/><!-- Head tag -->
+
+
+<div class="site-header">
+    <div class="logo">
+        <a href="/success" rel="home">
+
+            <img src="../static/images/favicon.png" alt="旋转跳跃喔" height="60">
+
+        </a>
+    </div>
+    <nav class="navbar">
+        <p>
+            <a href="/success">
+
+                主页
+
+            </a>
+
+
+            <a href="/logout">
+
+                退出
+
+            </a>
+        </p>
+
+    </nav>
+</div>
+
+<div class="post">
+    <!-- Post Content -->
+
+
+    <div class="post-logo">
+        <img src="../static/images/myself.jpg"
+             alt="Hello World">
+    </div>
+    {% for v in get_flashed_messages(category_filter=['ok']) %}
+        <h3 style="color:green;">{{ v }}</h3>
+    {% endfor %}
+
+    <style type="text/css">a {
+        text-decoration: none
+    }</style>
+    <article class="post-container">
+        <!-- Title date & tags -->
+        <div class="post-header">
+            <h1>
+                <strong>个人资料</strong>
+            </h1><br>
+            <a
+                    href="{{ url_for('main.update_personal',name = personal_rows[0].name) }}" target="_blank"
+                    class="edit"
+                    style="float: right;
+    margin-left: 14px;
+    padding: 0 10px 0 18px;font-size: 14px;
+    border: 1px solid #dcdcdc;
+    color: #9b9b9b;
+    line-height: 30px;
+    border-radius: 50px;">修改资料</a><br>
+            <h4>
+                昵称：{{ personal_rows[0].name }}
+
+            </h4><br>
+            <h4>
+                性别：{{ personal_rows[0].sex }}
+
+            </h4><br>
+            <h4>
+                年龄：{{ personal_rows[0].age }}
+
+            </h4><br>
+            <h4>
+                国籍：{{ personal_rows[0].nation }}
+
+            </h4><br>
+            <h4>
+                地址：{{ personal_rows[0].address }}
+
+            </h4><br>
+            <h4>
+                邮箱：{{ personal_rows[0].email }}
+
+            </h4><br>
+            <h4>
+                微信：{{ personal_rows[0].wechat }}
+
+            </h4>
+
+        </div><br><br>
+        <div class="post-content ">
+            <label for="about_me" style="font-size: 18px"><strong>About Me：</strong></label>
+                <p>{{ personal_rows[0].hobby | safe }}</p>
+        </div>
+
+    </article>
+</div>
+<footer class="site-info">
+    <p>
+
+        <span>Copyright © 2019 ArminBlog. </span>
+
+    </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update_personal_info</title>
+    <script src="//cdn.tinymce.com/4/tinymce.min.js">
+    </script>
+    <script>
+        tinymce.init({
+            selector: 'textarea'
+        });
+    </script>
+</head>
+<body style="background:url(../static/images/myself.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;">
+<div>
+    <a href="{{ url_for('main.personal') }}" style="height: 56px;line-height: 26px;color: #333;"><i
+            class="fa fa-circle-o"></i> 返回</a>
+</div>
+
+<form action="/update_personal/{{ personal_rows[0].name }}" method="post">
+    <h1>About Me</h1>
+    <div>
+        <h3><font size="5" color="red">{{ msg }}</font></h3>
+    </div>
+    <p>
+        <label for="user_info">昵称：
+            <input type="text" value="{{ personal_rows[0].name }}" placeholder="name" required="" id="name" name="name"></label>
+    </p>
+    <p>
+        <label for="user_blog">性别：
+            <input type="text" value="{{ personal_rows[0].sex }}" placeholder="sex" required="" id="sex"
+                   name="sex"></label>
+    </p>
+    <p>
+        <label for="user_blog">年龄：
+
+            <input type="text" value="{{ personal_rows[0].age }}" placeholder="age" required="" id="age"
+                   name="age"></label>
+    </p>
+    <p>
+        <label for="user_blog">国籍：
+
+            <input type="text" value="{{ personal_rows[0].nation }}" placeholder="nation" required="" id="nation"
+                   name="nation"></label>
+    </p>
+    <p>
+        <label for="user_blog">地址：
+
+            <input type="text" value="{{ personal_rows[0].address }}" placeholder="address" required="" id="address"
+                   name="address"></label>
+    </p>
+    <p>
+        <label for="user_blog">邮箱：
+
+            <input type="text" value="{{ personal_rows[0].email }}" placeholder="email" required="" id="email"
+                   name="email"></label>
+    </p>
+    <p>
+        <label for="user_blog">微信：
+
+            <input type="text" value="{{ personal_rows[0].wechat }}" placeholder="wechat" required="" id="wechat"
+                   name="wechat"></label>
+    </p>
+
+    <p>
+        <label for="user_blog">自我介绍：
+
+            <textarea cols="100" rows="20" placeholder="" id="hobby"
+                      name="hobby">{{ personal_rows[0].hobby }}</textarea></label>
+    </p>
+    <div>
+        <input type="submit" id="submit" name="submit" value="保存"><br>
+        <style type="text/css">a {
+            text-decoration: none
+        }</style>
+    </div>
+</form><!-- form -->
+
+</body>
+
+</html>
