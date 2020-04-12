@@ -44,7 +44,7 @@ lxml==4.2.5
 Mako==1.0.7
 Markdown==2.6.11
 MarkupSafe==1.0
-nltk==3.3
+nltk==3.4.5
 nudepy==0.4
 numpy==1.16.4
 opencv-python==4.1.0.25
